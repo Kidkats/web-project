@@ -39,10 +39,6 @@ li {
 	opacity: 1;
 }
 
-#navigation::after{
-	clear: both;
-}
-
 #navigation.active{
 	width: 192px;
 }
@@ -201,9 +197,12 @@ li {
 
 
 /*Page*/
+
+
 #page .pages{
-	display: block;
+	display: flex;
 	height: 100vh;
+	justify-content: center;
 	overflow-y: auto;
 }
 
@@ -211,5 +210,44 @@ li {
 	display: none;
 }
 
+#page-load{
+	display: none;
+	/*background-color: red;*/
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	overflow: hidden;
+}
 
+#page-load.none-load{
+	display: flex;
+}
 
+.icon-load{
+	display: block;
+	width: 30px;
+	height: 30px;
+	border: 5px solid black;
+	border-radius: 50%;
+	border-left-color: white;
+	animation: rotate 1.5s infinite linear;
+	/*background-color: green;*/
+}
+
+.text-load{
+	font-size: 1.5rem;
+	/*background-color: red;*/
+	margin-top: 1rem;
+	transform: translateX(8px);
+}
+
+@keyframes rotate{
+	from{
+		transform: rotate(0deg);
+	}
+
+	to{
+		transform: rotate(360deg);
+	}
+}
