@@ -1,17 +1,30 @@
-const button = document.querySelector('#navigation ul i.btn');
-const nav = document.getElementById('navigation');
+const resbutton = document.querySelector('#container .button');
 
-	button.addEventListener('click', function(){
-		nav.classList.toggle('active');
+	resbutton.addEventListener('click', function() {
+		nav.classList.toggle('on');
+		resbutton.classList.toggle('button-on');
+
+		setTimeout(function(){
+			resbutton.classList.remove('button-off');
+		},900);
+
+		resbutton.classList.add('button-off');
 	});
 
+const button = document.querySelector('#navigation ul i.btn');
+const nav = document.getElementById('navigation');
 const navBtn = document.querySelectorAll('#navigation ul .nav-btn');
 const pages = document.querySelectorAll('#page .pages')
 const iconp = document.querySelectorAll('#navigation  ul .nav-btn .iconp')
 const pageLoad = document.getElementById('page-load');
 
 	nav.addEventListener('click', function(e){
-		if(e.target.className == 'iconp'){
+
+		if(e.target == button){
+			nav.classList.toggle('active');
+		}
+
+		else if(e.target.className == 'iconp'){
 
 				for(let i = 0; i < navBtn.length; i++){
 
@@ -20,26 +33,20 @@ const pageLoad = document.getElementById('page-load');
 						pages[i].classList.add('none');
 					} //if
 
-				}//for
-
-				e.target.parentNode.classList.add('location');
-
-				for(let j = 0; j < iconp.length; j++){
-
-					if(e.target === iconp[j]){
+					else if(e.target === iconp[i]){
 						pageLoad.classList.add('none-load');
 
 							setTimeout(function(){
 								pageLoad.classList.remove('none-load');
-								pages[j].classList.remove('none');
+								pages[i].classList.remove('none');
 							}, 1000);
 
-						pages[j].classList.add('none');
-					}//if
+							pages[i].classList.add('none');
+					}//else if
 
 				}//for
 
-			
+				e.target.parentNode.classList.add('location');
 		}//if
 		
 	});//function

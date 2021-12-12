@@ -20,6 +20,10 @@ li {
 	width: 100%;
 }
 
+#container .button{
+	display: none;
+}
+
 
 /*Navbar*/
 #navigation{
@@ -133,7 +137,6 @@ li {
 }
 
 
-
 /*Profile*/
 
 #navigation .profile{
@@ -198,12 +201,12 @@ li {
 
 /*Page*/
 
-
 #page .pages{
 	display: flex;
 	height: 100vh;
 	justify-content: center;
 	overflow-y: auto;
+	box-sizing: border-box;
 }
 
 #page .pages.none{
@@ -242,6 +245,8 @@ li {
 	transform: translateX(8px);
 }
 
+/*animation*/
+
 @keyframes rotate{
 	from{
 		transform: rotate(0deg);
@@ -249,5 +254,73 @@ li {
 
 	to{
 		transform: rotate(360deg);
+	}
+}
+
+/*Responsive */ /*phone*/
+
+@media only screen and (max-width: 600px){
+
+	.pages{
+		padding-top: 22px;
+	}
+
+	#navigation{
+		width: 192px;
+		transform: translateX(-100%);
+		position: absolute;
+		transition: all 1s ease;
+		z-index: 1;
+	}
+
+	#navigation.on{
+		transform: translateX(0%);
+	}
+
+	#navigation ul .btn{
+		display: none;
+	}
+
+	#container .button{
+		display: block;
+		position: absolute;
+		font-size: 2.2rem;
+		top: 22px;
+		left: 10px;
+		z-index: 2;
+		transition: .2s;
+	}
+
+	#container .button.button-off{
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	#container .button.button-on{
+		color: white;
+	}
+
+	#navigation ul .logo{
+		padding-right: 2.3rem;
+		align-self: flex-end;
+	}
+
+	#navigation.on ul .logo{
+		opacity: 1;
+		transition :.3s;
+		transition-delay: .5s;
+	}
+
+	#navigation.on ul li .pmenu{
+		opacity: 1;
+	}
+
+	#navigation ul .nav-btn .icon{
+		opacity: 0;
+		transition :.1s;
+	}
+
+	#navigation.on ul .nav-btn .icon{
+		opacity: 1;
 	}
 }
