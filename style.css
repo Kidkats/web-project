@@ -13,7 +13,7 @@ li {
 }
 
 #container{
-	min-height: 100vh;
+	height: 100vh;
 	background-color: white;
 	position: relative;
 	overflow: hidden;
@@ -29,9 +29,8 @@ li {
 #navigation{
 	background-color: #11101d;
 	display: flex;
+	padding-top: .5rem;
 	flex-direction: column;
-	justify-content: space-between;
-	padding-top: .5em;
 	position: relative;
 	min-height: 100vh;
 	box-sizing: border-box;
@@ -50,39 +49,42 @@ li {
 #navigation ul{
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
-	height: 40vh;
 }
 
 
-#navigation ul .logo{
+#navigation .logo{
 	display: flex;
 	padding-left: 1.1em;
+	height: 50px;
 	opacity: 0;
+	align-items: center;
+	margin-bottom: 1rem;
 }
 
-#navigation.active ul .logo{
+#navigation.active .logo{
 	opacity: 1;
 	transition :.3s;
 	transition-delay: .3s;
 }
 
 #navigation ul .btn{
+	display: flex;
 	position: absolute;
+	align-items: center;
 	font-size: 2rem;
 	left: 100%;
-	top: 16px;
-	padding: 0;
+	top: .5rem;
+	height: 50px;
 	transform: translateX(-165%);
 	cursor: pointer;
 }
 
 #navigation ul .nav-btn{
 	display: flex;
-	/*background-color: #3a3663;*/
 	position: relative;
 	font-size: 1.2rem;
 	padding: .8em 0;
+	margin-bottom: 1rem;
 	box-sizing: border-box;
 	justify-content: left;
 	align-content: center;
@@ -146,7 +148,8 @@ li {
 	align-items: center;
 	font-size: 1.2rem;
 	transition: all 1s ease;
-	position: relative;
+	position: absolute;
+	bottom: 0;
 }
 
 #navigation.active .profile{
@@ -262,10 +265,6 @@ li {
 
 @media only screen and (max-width: 600px){
 
-	.pages{
-		padding-top: 22px;
-	}
-
 	#navigation{
 		width: 192px;
 		transform: translateX(-100%);
@@ -273,7 +272,7 @@ li {
 		transition: all 1s ease;
 		height: 100vh;
 		z-index: 1;
-		padding-top: 3%;
+		padding-top: .5rem;
 	}
 
 	#navigation.on{
@@ -285,13 +284,16 @@ li {
 	}
 
 	#container .button{
-		display: block;
+		display: grid;
 		position: absolute;
+		place-items: center;
 		font-size: 2.2rem;
-		top: 3.3%;
-		left: 10px;
+		height: 50px;
+		top: .5rem;
+		left: 15px;
 		z-index: 2;
 		transition: .2s;
+		/*background-color: red;*/
 	}
 
 	#container .button.button-off{
@@ -303,15 +305,24 @@ li {
 		color: white;
 	}
 
-	#navigation ul .logo{
-		padding-right: 2.3rem;
-		align-self: flex-end;
-	}
-
-	#navigation.on ul .logo{
+	#navigation.on .logo{
 		opacity: 1;
 		transition :.3s;
 		transition-delay: .5s;
+		/*background-color: green;*/
+		justify-content: flex-end;
+		padding-right: 2rem;
+		align-items: center;
+		line-height: 100%;
+	}
+
+	#navigation ul{
+		justify-content: flex-end;	
+		/*background-color: green;*/
+	}
+
+	#navigation ul .nav-btn{
+		margin-bottom: 1rem;
 	}
 
 	#navigation.on ul li .pmenu{
@@ -325,5 +336,15 @@ li {
 
 	#navigation.on ul .nav-btn .icon{
 		opacity: 1;
+	}
+
+	#navigation.on .profile .border .profile_name{
+		opacity: 1;
+	}
+
+	#navigation.on .profile{
+		position: fixed;
+		bottom: 0;
+		width: 192px;
 	}
 }
