@@ -55,10 +55,12 @@ li {
 #navigation .logo{
 	display: flex;
 	padding-left: 1.1em;
+	padding-top: 7px;
 	height: 50px;
 	opacity: 0;
-	align-items: center;
-	margin-bottom: 1rem;
+	align-items: flex-start;
+	margin-bottom: .5rem;
+	box-sizing: border-box;
 }
 
 #navigation.active .logo{
@@ -205,9 +207,7 @@ li {
 /*Page*/
 
 #page .pages{
-	display: flex;
 	height: 100vh;
-	justify-content: center;
 	overflow-y: auto;
 	box-sizing: border-box;
 	position: relative;
@@ -247,6 +247,24 @@ li {
 	/*background-color: red;*/
 	margin-top: 1rem;
 	transform: translateX(8px);
+}
+
+/*Page 2*/
+
+#page2 .project-border{
+	display: grid;
+	/*background-color: green;*/
+	box-sizing: border-box;
+	padding: 2em;
+	grid-template-columns: repeat(auto-fit, minmax(17em, .5fr));
+	gap: 2rem;
+	justify-content: center;
+}
+
+#page2 .project-border .project-menu{
+	height: 20em;
+	background-color: skyblue;
+	border-radius: 10px;
 }
 
 /*animation*/
@@ -308,12 +326,13 @@ li {
 	#navigation.on .logo{
 		opacity: 1;
 		transition :.3s;
-		transition-delay: .5s;
 		/*background-color: green;*/
 		justify-content: flex-end;
 		padding-right: 2rem;
-		align-items: center;
+		padding-top: 11px;
+		align-items: flex-start;
 		line-height: 100%;
+		box-sizing: border-box;
 	}
 
 	#navigation ul{
@@ -338,13 +357,7 @@ li {
 		opacity: 1;
 	}
 
-	#navigation.on .profile .border .profile_name{
-		opacity: 1;
-	}
-
-	#navigation.on .profile{
-		position: fixed;
-		bottom: 0;
-		width: 192px;
+	#navigation .profile{
+		display: none;
 	}
 }
