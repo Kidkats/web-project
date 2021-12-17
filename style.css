@@ -182,14 +182,12 @@ li {
 }
 
 #navigation .profile .border .profile_name{
-	display: none;
 	opacity: 0;
 	pointer-events: none;
 	transition: .1s;
 }
 
 #navigation.active .profile .border .profile_name{
-	display: block;
 	opacity: 1;
 }
 
@@ -423,7 +421,6 @@ li {
 .pages-grid .project-border .project-menu .text-border .source-items .source{
 	display: flex;
 	background-color: #ffad33;
-	border: 1.5px solid #ff8c1a;
 	text-decoration: none;
 	width: 30px;
 	box-sizing: border-box;
@@ -444,7 +441,6 @@ li {
 .pages-grid .project-border .project-menu .text-border .source-items .feature-tag{
 	display: flex;
 	background-color: #df80ff;
-	border: 1.5px solid #7a00cc;
 	color: black;
 	text-decoration: none;
 	width: 50px;
@@ -564,8 +560,27 @@ li {
 		opacity: 1;
 	}
 
-	#navigation .profile{
-		display: none;
+	#navigation .profile .border .icon{
+		opacity: 0;
+		transition: .1s;
+		pointer-events: none;
+		margin-right: 1rem;
+		align-self: center;
+	}
+
+	#navigation.on .profile .border .icon{
+		opacity: 1;
+	}
+
+	#navigation .profile .border .profile_name{
+		opacity: 0;
+		align-self: center;
+		pointer-events: none;
+		transition: .1s;
+	}
+
+	#navigation.on .profile .border .profile_name{
+		opacity: 1;
 	}
 
 	#page .pages{
@@ -606,9 +621,9 @@ li {
 		position: relative;
 		text-align: center;
 		width: 95%;
-		height: 215px;
+		height: 225px;
 		background-color: #262626;
-		padding: 1.3em;
+		padding: 1.1em;
 		box-sizing: border-box;
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -656,7 +671,7 @@ li {
 	}
 
 	#page #page1 #main ul .home-list .lag-img .list-judul{
-		padding-bottom: 0.3em;
+		padding-bottom: .5em;
 	}
 
 	#page #page1 #main .home-tool{
